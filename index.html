@@ -9,26 +9,256 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> MATTTT making conflict test</h1>
-    
-<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-</ul>
-<nav>
-<div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <!-- Dropdown Trigger -->
-    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right"><img src = "./Assets/Imgs/hamburger-icon.png"></i></a></li>
-    </ul>
-</div>
-</nav>
+<header class="row col s12">
+    <nav class="col s6 m10 l11">
+        <div class="nav-wrapper valign-wrapper">
+          <h1 class="brand-logo center">Union Finder</h1>
+        </div>
+    </nav>
+    <nav class="col s6 m2 l1 center-align">
+        <div class="nav-wrapper">
+            <ul class="right">
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right"><img src = "./Assets/Imgs/hamburger-icon.png"></i></a></li>
+            </ul>
+        </div>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Dynamic Content -->
+<main class="row col s12">
+
+    <!-- Search Bar -->
+    <form class="row col s12 m12 l4">
+        <div class="col s12 m12 l6">
+          <div class="input-field">
+            <input id="input_text" type="number" data-length="05">
+            <label for="input_text">Zip Code</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light col s12 m12 l3" type="submit" name="action">
+            Submit
+        </button>
+        <!-- Map Div -->
+        <div class="col s12">
+            Map Placeholder
+        </div>
+    </form>
+
+    <!-- Union List From Scrapper -->
+    <table class="row col s12 m12 l4 highlight">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <!-- About Them -->
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cupiditate illum, maxime similique libero molestiae quasi expedita a, itaque doloribus? Sunt neque maiores, illo consequuntur fugiat veniam dolore aliquid.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores saepe quos sed ipsa optio, tenetur vitae sunt iure quidem veritatis, ea cum provident neque, quas modi! Ad, minima velit!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel omnis ipsum dolore iste ullam reiciendis culpa, id atque nemo tempora optio saepe consequatur molestias quas in nisi consectetur molestiae. Eaque?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima ea impedit eos fugit ab doloremque praesentium dicta voluptatum, quam nisi quos sequi cupiditate fugiat fuga nesciunt error repellendus sapiente?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae pariatur neque obcaecati saepe deserunt vitae necessitatibus cupiditate vero nihil commodi magni consequatur minima quod provident, quam odit dicta autem velit?
+            </span>
+          </div>
+        </div>
+    </div>
+
+</main>
+<!-- Dynamic End -->
+
+<!-- Input Field -->
+<main class="row container col s12">
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </form>
+    </div>
+</main>
+<!-- Input Field End -->
+
+<!-- Resources -->
+<main class="row col s12">
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row col s12 m12 l4">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+            </span>
+          </div>
+        </div>
+    </div>
+
+</main>
+<!-- Resources End -->
+
+<!-- About Us -->
+<main class="row col s12">
+
+    <div class="card col s12 m12 l4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+    </div>
+
+    <div class="card col s12 m12 l4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+    </div>
+
+    <div class="card col s12 m12 l4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+    </div>
+
+</main>
+<!-- About Us End -->
+
+<!-- Footer -->
+<footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      </div>
+    </div>
+</footer>
+<!-- Footer End -->
           
 </body>
 
