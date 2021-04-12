@@ -6,30 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel = "stylesheet" href = "./Assets/style.css">
-    <title>Document</title>
+    <title>Union Finder</title>
 </head>
 <body>
-<header class="row col s12">
-    <nav class="col s6 m10 l11">
-        <div class="nav-wrapper valign-wrapper">
-          <h1 class="brand-logo center">Union Finder</h1>
-        </div>
-    </nav>
-    <nav class="col s6 m2 l1 center-align">
-        <div class="nav-wrapper">
-            <ul class="right">
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right"><img src = "./Assets/Imgs/hamburger-icon.png"></i></a></li>
-            </ul>
-        </div>
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-        </ul>
-    </nav>
+
+
+
+<!-- Navbar -->
+<header id = top class="row col s12 navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">Union Finder</a>
+      <ul class="right">
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right"><img src = "./Assets/Imgs/hamburger-icon.png"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#top">Main</a></li>
+    <li class="divider"></li>
+    <li><a href="#empty-container">Resources</a></li>
+    <li class="divider"></li>
+    <li><a href="#empty-container-2">About Us</a></li>
+    
+    
+  </ul>
 </header>
+<!-- Navbar End -->
 
 <!-- Dynamic Content -->
 <main class="row col s12">
@@ -128,9 +133,11 @@
     </div>
 </main>
 <!-- Input Field End -->
+<main id = "empty-container" class = "row">
 
+</main>
 <!-- Resources -->
-<main class="row col s12">
+<main id = "resources" class="row col s12">
     <div class="row col s12 m12 l4">
         <div class="col s12">
           <div class="card-panel teal">
@@ -193,9 +200,9 @@
 
 </main>
 <!-- Resources End -->
-
+<main id = "empty-container-2"></main>
 <!-- About Us -->
-<main class="row col s12">
+<main id = "about-us" class="row col s12">
 
     <div class="card col s12 m12 l4">
         <div class="card-image waves-effect waves-block waves-light">
