@@ -2,3 +2,16 @@
     padding-top: 8px;
 }
 
+/* #sticky-header {
+    position:fixed;
+    display: inline;
+} */
+
+
+#empty-container {
+    padding-top: 50px;
+}
+
+#empty-container-2 {
+    padding-top: 60px;
+}
