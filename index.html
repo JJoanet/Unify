@@ -39,20 +39,23 @@
 <!-- Dynamic Content -->
 <main class="row col s12">
 
-    <!-- About Them -->
-    <div class="row col s12 m12 l4">
-      <div class="col s12">
-        <div class="card-panel grey darken-3">
-          <span class="white-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cupiditate illum, maxime similique libero molestiae quasi expedita a, itaque doloribus? Sunt neque maiores, illo consequuntur fugiat veniam dolore aliquid.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores saepe quos sed ipsa optio, tenetur vitae sunt iure quidem veritatis, ea cum provident neque, quas modi! Ad, minima velit!
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel omnis ipsum dolore iste ullam reiciendis culpa, id atque nemo tempora optio saepe consequatur molestias quas in nisi consectetur molestiae. Eaque?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima ea impedit eos fugit ab doloremque praesentium dicta voluptatum, quam nisi quos sequi cupiditate fugiat fuga nesciunt error repellendus sapiente?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae pariatur neque obcaecati saepe deserunt vitae necessitatibus cupiditate vero nihil commodi magni consequatur minima quod provident, quam odit dicta autem velit?
-          </span>
-        </div>
+
+   <!-- Search Bar -->
+   <form class="row col s12 m12 l4 center-align" id="form">
+    <div class="col s12 m12 l6">
+      <div class="input-field">
+        <input id="input_text" type="number" data-length="05">
+        <label for="input_text">Zip Code</label>
       </div>
-  </div>
+    </div>
+    <button class="btn waves-effect waves-light col s12 m12 l3 grey darken-3" type="submit" name="action">
+        Submit
+    </button>
+    <!-- Map Div -->
+    <div class="col s12">
+        Map Placeholder
+    </div>
+</form>
 
     <!-- Union List From Scrapper -->
     <table class="row col s12 m12 l4 highlight">
@@ -83,23 +86,21 @@
         </tbody>
     </table>
 
-    <!-- Search Bar -->
-    <form class="row col s12 m12 l4">
-      <div class="col s12 m12 l6">
-        <div class="input-field">
-          <input id="input_text" type="number" data-length="05">
-          <label for="input_text">Zip Code</label>
+      <!-- About Them -->
+      <div class="row col s12 m12 l4 valign right">
+        <div class="col s12">
+          <div class="card-panel grey darken-3">
+            <span class="white-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cupiditate illum, maxime similique libero molestiae quasi expedita a, itaque doloribus? Sunt neque maiores, illo consequuntur fugiat veniam dolore aliquid.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores saepe quos sed ipsa optio, tenetur vitae sunt iure quidem veritatis, ea cum provident neque, quas modi! Ad, minima velit!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel omnis ipsum dolore iste ullam reiciendis culpa, id atque nemo tempora optio saepe consequatur molestias quas in nisi consectetur molestiae. Eaque?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima ea impedit eos fugit ab doloremque praesentium dicta voluptatum, quam nisi quos sequi cupiditate fugiat fuga nesciunt error repellendus sapiente?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae pariatur neque obcaecati saepe deserunt vitae necessitatibus cupiditate vero nihil commodi magni consequatur minima quod provident, quam odit dicta autem velit?
+            </span>
+          </div>
         </div>
-      </div>
-      <button class="btn waves-effect waves-light col s12 m12 l3 grey darken-3" type="submit" name="action">
-          Submit
-      </button>
-      <!-- Map Div -->
-      <div class="col s12">
-          Map Placeholder
-      </div>
-  </form>
-
+    </div>
+  
     
 </main>
 <!-- Dynamic End -->
@@ -126,8 +127,8 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
+              <input id="phone" type="text" class="validate">
+              <label for="phone">Phone Number</label>
             </div>
           </div>
         </form>
@@ -139,65 +140,55 @@
 </main>
 <!-- Resources -->
 <main id = "resources" class="row col s12">
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+  <div class="row col s12 m12 l4">
+    <div class="col s12">
+      <div class="card small">
+        <div class="card-image">
+          <img src="./Assets/Imgs/PSlogo.png">
+          <span class="card-title"></span>
         </div>
-    </div>
-
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+        <div class="card-content">
+          <p>Paramedic Services of Illinois provides EMS Personnel and Firefighters, Critical Care Paramedics, Ambulance and Fire Rescue Billing, and third-party Fire Safety Consulting.</p>
         </div>
-    </div>
-
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+        <div class="card-action">
+          <a href="https://www.paramedicservices.com">Paramedic Services</a>
         </div>
+      </div>
     </div>
-
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+  </div>
+  <div class="row col s12 m12 l4">
+    <div class="col s12">
+      <div class="card small">
+        <div class="card-image">
+          <img src="./Assets/Imgs/DOL.png">
+          <span class="card-title"></span>
         </div>
-    </div>
-
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+        <div class="card-content">
+          <p>The U.S. Department of Labor's Office of Workers' Compensation Programs (OWCP)</p>
         </div>
-    </div>
-
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-            </span>
-          </div>
+        <div class="card-action">
+          <a href="https://www.dol.gov/general/topic/workcomp">Workers Comp</a>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="row col s12 m12 l4">
+    <div class="col s12">
+      <div class="card small">
+        <div class="card-image">
+          <img src="./Assets/Imgs/VectorSolutions.png">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+          <p>Deliver online training for your public safety organization - Fire, EMS & more. TargetSolutions online training management is effective and efficient.</p>
+        </div>
+        <div class="card-action">
+          <a href="https://www.targetsolutions.com/">Target Solutions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+           
 
 </main>
 <!-- Resources End -->

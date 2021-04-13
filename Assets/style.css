@@ -2,12 +2,6 @@
     padding-top: 8px;
 }
 
-/* #sticky-header {
-    position:fixed;
-    display: inline;
-} */
-
-
 #empty-container {
     padding-top: 50px;
 }
@@ -18,4 +12,12 @@
 
 body {
     background-color: #E5E5E5;
+}
+
+#form {
+    padding-left: 4%;
+}
+
+#unionList {
+    align-items: center;
 }
