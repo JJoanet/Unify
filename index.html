@@ -106,15 +106,15 @@
 <!-- Input Field -->
 <main class="row container col s12">
     <div class="row">
-        <form class="col s12">
+        <form id = "form" class="col s12" action = "javascript:"  method="post">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
+              <input id="first-name" type="text" class="validate first-name">
+              <label id = "label" for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
+              <input id="last-name" type="text" class="validate">
+              <label for="last-name">Last Name</label>
             </div>
           </div>
           <div class="row">
@@ -128,6 +128,9 @@
               <input id="email" type="email" class="validate">
               <label for="email">Email</label>
             </div>
+          </div>
+          <div class = "row">
+            <input type = "submit" value = "submit">
           </div>
         </form>
     </div>
