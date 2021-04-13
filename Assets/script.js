@@ -33,7 +33,7 @@ fetch (googleScraper)
 
         newsImage.attr('src', unionImage[i])
         
-        var newsName = $('<tr>');
+        var newsName = $('<td>');
         newNews.append(newsName);
 
         var newsLink = $('<a>');
