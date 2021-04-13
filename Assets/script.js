@@ -7,7 +7,8 @@ $("document").ready(function(){
 // Union data from google scraper, variable storage.
 var unionUrl = new Array;
 var unionList = new Array;
-var googleScraper = 'http://api.serpstack.com/search?access_key=66ecd70620e9cb687f76f203d80f15b9&period=last_year&sort=relevance&query=Emt_and_Paramedic_Union&location=Chicago';
+var unionImage = new Array;
+var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-11eb-982b-7da4a2ec72b5&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
 fetch (googleScraper)
     .then(response =>{
@@ -17,11 +18,30 @@ fetch (googleScraper)
     .then(data => {
         console.log(data);
 
-        for( i = 0; i < 7; i++ ){
-        unionList.push(data.organic_results[i].title);
-        unionUrl.push(data.organic_results[i].url);
-        console.log(unionUrl[i]);
-        console.log(unionList[i]);
+        for( i = 0; i < 6; i++ ){
+        unionList.push(data.news_results[i].title);
+        unionUrl.push(data.news_results[i].link);
+        unionImage.push(data.news_results[i].thumbnail);
+        
+        var newNews = $('<tr>');
+        $('tbody').append(newNews);
+
+        var newsIcon = $('<td>');
+        newNews.append(newsIcon);
+        var newsImage = $('<img>');
+        newsIcon.append(newsImage);
+
+        newsImage.attr('src', unionImage[i])
+        
+        var newsName = $('<tr>');
+        newNews.append(newsName);
+
+        var newsLink = $('<a>');
+        newsName.append(newsLink)
+
+        newsLink.attr('href', unionUrl[i]);
+        newsLink.text(unionList[i]);
+        
         };
         return {
             data
