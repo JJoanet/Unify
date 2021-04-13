@@ -50,32 +50,30 @@ function myMap() {
 // End map implementation.
 
 
-
-
-
-
-let firstName = $("#first-name");
-let lastName = $("#last-name");
-let password = $("#password");
-let email = $("#email");
-let form = $("#form");
-let submitBtn = $("#submit");
-
-
-
-
+// Email to Union on Form Submission
 $("form").on("submit", function(event){
     event.preventDefault();
-    console.log("form submitted");
-    
-    console.log(firstName.val());
-    console.log(lastName.val())
-    console.log(password.val());
-    console.log(email.val());
 
-    let message = "Hi, my name is " + firstName.val() + " " + lastName.val() + ".";
-    let subject = "Union Canvassing";
-    console.log(message);
-    + "Please get back to me at EMAIL or PHONE NUMBER.",
-    window.open("mailto:mreisdorf9717@gmail.com?subject="+subject+"&body="+message+"\r\n some more text. I wanted to reach out to you regarding canvassing for UNION. Please get back to me at EMAIL or PHONE NUMBER. Thanks");
+    // Variable Storage for User Inputs
+    let firstName = $("#first-name").val();
+    let lastName = $("#last-name").val();
+    let comments = $("#comments").val();
+    let phoneNumber = $("#phone").val();
+    
+
+    // Testing in log
+    console.log("form submitted");
+    console.log(firstName);
+    console.log(lastName)
+    console.log(comments);
+    console.log(phoneNumber);
+
+    // Email Template
+    let message = "Hello, %0D%0A%0D%0AMy name is " + firstName + " " + lastName + " and I wanted to reach out to you about canvassing for UNION%0D%0Aplease email me";
+    console.log(message); // Message Testing
+    let additionalComments = "%0D%0A%0D%0AThis is an automatically generated email. Additional comments from " + firstName + " are shown below: %0D%0A%0D%0A" + comments;
+    console.log(additionalComments);
+
+    // Opens Email Client with Populated Text
+    window.open("mailto:mreisdorf9717@gmail.com?subject=sub&body="+ message + additionalComments);
 })
