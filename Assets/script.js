@@ -24,7 +24,7 @@ fetch (googleScraper)
         unionImage.push(data.news_results[i].thumbnail);
         
         var newNews = $('<tr>');
-        $('tbody').append(newNews);
+        $('#news').append(newNews);
 
         var newsIcon = $('<td>');
         newNews.append(newsIcon);
