@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel = "stylesheet" href = "./Assets/style.css">
-    <title>Document</title>
+    <title>Union Finder</title>
 </head>
 <body>
 
@@ -15,8 +15,8 @@
 <!-- Navbar -->
 <header id = top class="row col s12 navbar-fixed">
   <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">Logo</a>
+    <div class="nav-wrapper black">
+      <a href="#!" class="brand-logo center white-text">Union Finder</a>
       <ul class="right">
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right"><img src = "./Assets/Imgs/hamburger-icon.png"></i></a></li>
@@ -54,7 +54,8 @@
         <div id="mapCanvas" class="col s12">
             Map Placeholder
         </div>
-    </form>
+      </div>
+  </div>
 
     <!-- Union List From Scrapper -->
     <table class="row col s12 m12 l4 highlight">
@@ -85,21 +86,24 @@
         </tbody>
     </table>
 
-    <!-- About Them -->
-    <div class="row col s12 m12 l4">
-        <div class="col s12">
-          <div class="card-panel teal">
-            <span class="white-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cupiditate illum, maxime similique libero molestiae quasi expedita a, itaque doloribus? Sunt neque maiores, illo consequuntur fugiat veniam dolore aliquid.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores saepe quos sed ipsa optio, tenetur vitae sunt iure quidem veritatis, ea cum provident neque, quas modi! Ad, minima velit!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel omnis ipsum dolore iste ullam reiciendis culpa, id atque nemo tempora optio saepe consequatur molestias quas in nisi consectetur molestiae. Eaque?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima ea impedit eos fugit ab doloremque praesentium dicta voluptatum, quam nisi quos sequi cupiditate fugiat fuga nesciunt error repellendus sapiente?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae pariatur neque obcaecati saepe deserunt vitae necessitatibus cupiditate vero nihil commodi magni consequatur minima quod provident, quam odit dicta autem velit?
-            </span>
-          </div>
+    <!-- Search Bar -->
+    <form class="row col s12 m12 l4">
+      <div class="col s12 m12 l6">
+        <div class="input-field">
+          <input id="input_text" type="number" data-length="05">
+          <label for="input_text">Zip Code</label>
         </div>
-    </div>
+      </div>
+      <button class="btn waves-effect waves-light col s12 m12 l3 grey darken-3" type="submit" name="action">
+          Submit
+      </button>
+      <!-- Map Div -->
+      <div class="col s12">
+          Map Placeholder
+      </div>
+  </form>
 
+    
 </main>
 <!-- Dynamic End -->
 
@@ -109,7 +113,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -119,8 +123,8 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
+              <input id="Comments" type="text" class="validate">
+              <label for="Comments">Additional Comments</label>
             </div>
           </div>
           <div class="row">
@@ -140,7 +144,7 @@
 <main id = "resources" class="row col s12">
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -150,7 +154,7 @@
 
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -160,7 +164,7 @@
 
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -170,7 +174,7 @@
 
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -180,7 +184,7 @@
 
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -190,7 +194,7 @@
 
     <div class="row col s12 m12 l4">
         <div class="col s12">
-          <div class="card-panel teal">
+          <div class="card-panel grey darken-3">
             <span class="white-text">I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
             </span>
@@ -250,7 +254,7 @@
 <!-- About Us End -->
 
 <!-- Footer -->
-<footer class="page-footer">
+<footer class="page-footer black">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
