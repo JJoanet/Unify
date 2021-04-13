@@ -1,3 +1,4 @@
+// Navbar Dropdown Ready Function
 $("document").ready(function(){
     $(".dropdown-trigger").dropdown();     
 })
