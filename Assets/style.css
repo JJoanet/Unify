@@ -50,3 +50,7 @@ body {
     padding: 18px;
 }
 
+#form, table, .card-panel {
+    padding: 20px;
+}
+
