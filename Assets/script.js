@@ -41,6 +41,7 @@ fetch (googleScraper)
 
         newsLink.attr('href', unionUrl[i]);
         newsLink.text(unionList[i]);
+        newsLink.attr('target', '_blank');
         
         };
         return {
