@@ -10,6 +10,17 @@
     padding-top: 60px;
 }
 
+body {
+    background-color: #E5E5E5;
+}
+
+#form {
+    padding-left: 4%;
+}
+
+#unionList {
+    align-items: center;
+}
 #mapCanvas {
     height: 400px;
   }
