@@ -39,13 +39,21 @@
 <!-- Dynamic Content -->
 <main class="row col s12">
 
-
-   <!-- Search Bar -->
-   <form class="row col s12 m12 l4 center-align" id="form">
-    <div class="col s12 m12 l6">
-      <div class="input-field">
-        <input id="input_text" type="number" data-length="05">
-        <label for="input_text">Zip Code</label>
+    <!-- Search Bar -->
+    <form class="row col s12 m12 l4 center-align" id="form">
+        <div class="col s12 m12 l6">
+          <div class="input-field">
+            <input id="input_text" type="number" data-length="05">
+            <label for="input_text">Zip Code</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light col s12 m12 l3" type="submit" name="action">
+            Submit
+        </button>
+        <!-- Map Div -->
+        <div id="mapCanvas" class="col s12">
+            Map Placeholder
+        </div>
       </div>
     </div>
     <button class="btn waves-effect waves-light col s12 m12 l3 grey darken-3" type="submit" name="action">
@@ -198,7 +206,7 @@
 
     <div class="card col s12 m12 l4">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
+          <img class="activator" src="">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -212,7 +220,7 @@
 
     <div class="card col s12 m12 l4">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
+          <img class="activator" src="">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -226,7 +234,7 @@
 
     <div class="card col s12 m12 l4">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
+          <img class="activator" src="">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -258,10 +266,9 @@
     </div>
 </footer>
 <!-- Footer End -->
-          
-</body>
-
+ 
 <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src = "./Assets/script.js"></script>
+</body>
 </html>
