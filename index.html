@@ -48,8 +48,8 @@
         </div>
     </form>
 
-    <!-- Union List From Scrapper -->
-    <table class="row col s12 m12 l4 highlight">
+    <!-- Union List -->
+    <table class="row col s12 m12 l4 highlight centered">
         <thead>
 
           <tr>
@@ -59,6 +59,7 @@
               <th>Email</th>
           </tr>
         </thead>
+
 
         <tbody>
           <tr>
@@ -74,26 +75,21 @@
             <td>kalexander@nage.org</td>
           </tr>
         </tbody>
+
     </table>
 
-      <!-- About Them -->
-      <div class="row col s12 m12 l4 valign right">
-        <div class="col s12">
-          <div class="card-panel grey darken-3">
-            <table class="row col s12 m12 l4 highlight">
-              <thead>
-                <tr>
-                    <h1 class="white-text">Recent Union News</h1>
-                </tr>
-              </thead>
-      
-              <tbody id="news">
+      <!-- News -->
+      <div class="responsive-table table-status-sheet">
+        <table id="newsTable" class="responsive-table col s4 l4">
+          <thead>
+            <tr>
+              <h5 class="black-text text center-align">Recent Union News</h5>
+            </tr>
+          </thead>
+            <tbody id="news">
               </tbody>
-          </table>
-          </div>
-        </div>
-    </div>
-  
+        </table>  
+      </div>
     
 </main>
 <!-- Dynamic End -->
@@ -192,48 +188,69 @@
 <!-- Resources End -->
 <main id = "empty-container-2"></main>
 <!-- About Us -->
-<main id = "about-us" class="row col s12">
+<main id = "about-us" class="row">
 
-    <div class="card col s12 m12 l4">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="">
+    <div class="card col s12 l4">
+      <div id="aboutCreator" class="row">
+        <!-- <div class="col s12 m7"> -->
+          <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
         </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
+      </div>
+                
     </div>
 
-    <div class="card col s12 m12 l4">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="">
+    <div class="card col s12 l4">
+      <div id="aboutCreator" class="row">
+        <!-- <div class="col s12 m7"> -->
+          <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
         </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
+      </div>
+                
     </div>
 
-    <div class="card col s12 m12 l4">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="">
+    <div class="card col s12 l4">
+      <div id="aboutCreator valign-wrap">
+        <!-- <div class="col s12 m7 center-align"> -->
+          <div class="card small">
+            <div class="card-image">
+              <img id="imgUs" src="./Assets/Imgs/zach.jpeg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="https://www.github.com/zachduty">GitHub</a>
+            </div>
+          </div>
         </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
+      </div>
+                
     </div>
 
 </main>
@@ -292,7 +309,10 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
+
+
       © 2021 Copyright Text
+
       </div>
     </div>
 </footer>
