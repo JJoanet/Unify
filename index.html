@@ -51,19 +51,28 @@
     <!-- Union List From Scrapper -->
     <table class="row col s12 m12 l4 highlight">
         <thead>
+
           <tr>
               <th>Union</th>
               <th>Website</th>
-              <th>Item Price</th>
+              <th>Phone</th>
+              <th>Email</th>
           </tr>
         </thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
 
         <tbody>
+          <tr>
+            <td>EMS Workers United</td>
+            <td><a href="https://www.emsworkersunited.org/" target="_blank">emsworkersunited.org/</a></td>
+            <td>N/A</td>
+            <td>mdeahn@afscme.org</td>
+          </tr>
+          <tr>
+            <td>National Association of Government Employees - EMS</td>
+            <td><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">nage-ems.org</a></td>
+            <td>617-376-0469</td>
+            <td>kalexander@nage.org</td>
+          </tr>
         </tbody>
     </table>
 
@@ -229,6 +238,47 @@
 
 </main>
 <!-- About Us End -->
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Add Your Union</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Union Name" id="newName" type="text" class="validate">
+            <label for="newName">Union Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="newUrl" type="text" class="validate">
+            <label for="newUrl">Union Website</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newEmail" type="email" class="validate">
+            <label for="newEmail">Your Contact Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newPhone" type="number" class="validate">
+            <label for="newPhone">Your Contact Number</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+<!-- Modal Trigger -->
+<button data-target="modal1" class="btn modal-trigger">Add a Union!</button>
+
+
 
 <!-- Footer -->
 <footer class="page-footer black">
