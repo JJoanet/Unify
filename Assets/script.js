@@ -189,7 +189,7 @@ if (localStorage.getItem('savedUnions') !== null) {
 
 // Address Input GeoCoding
 
-var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=AIzaSyDaIkzjZlSBdsIU_A12EFqBAhmZlLMaj1E';
+var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=';
 
 fetch (geocodeApi)
     .then(response =>{
