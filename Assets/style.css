@@ -100,3 +100,7 @@ thead {
 #cardSmall {
     padding: 0;
 }
+ 
+#news-margin {
+  margin-left: 33px !important;
+}
