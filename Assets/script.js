@@ -205,13 +205,12 @@ setInterval(activeEmail,1000);
 // Email to Union on Form Submission
 $("form").on("submit", function(event){
     event.preventDefault();
-    console.log(email);
+    
     // Variable Storage for User Inputs
     let firstName = $("#first-name").val();
     let lastName = $("#last-name").val();
     let comments = $("#comments").val();
     let phoneNumber = $("#phone").val();
-    console.log(email);
     
     // Email Template
     let message = "Hello, %0D%0A%0D%0AMy name is " + firstName + " " + lastName + " and I wanted to reach out to you about canvassing for UNION%0D%0Aplease email me";
