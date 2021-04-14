@@ -97,39 +97,50 @@ acceptButton.on('click', function(){
         Url: newUrl.val()
     }
 
-    var newunionRow = $('<tr>');
-    newunionRow.attr('class', 'tablerow');
-    $('#listofUnions').append(newunionRow);
+    if(newInput.Name === ""){
+        alert("Union name is a required field!")
+    } else if(newInput.Email === ""){
+        alert("Contact email is a required field!")
+    } else if(newInput.Url === ""){
+        alert("Union website is a required field!")
+    } else {
 
-    var newunionName = $('<td>');
-    newunionName.text(newInput.Name);
-    newunionRow.append(newunionName);
-
-    var newunionUrl = $('<td>');
-    newunionUrl.text(newInput.Url);
-    newunionRow.append(newunionUrl);
-    var newunionLink = $('<a>');
-    newunionLink.attr('href', newInput.Url);
-    newunionUrl.append(newunionLink);
-
-    var newunionPhone = $('<td>');
-    newunionPhone.text(newInput.Phone);
-    newunionRow.append(newunionPhone);
-
-    var newunionEmail = $('<td>');
-    newunionEmail.attr("id","email");
-    newunionEmail.text(newInput.Email);
-    newunionRow.append(newunionEmail);
+        console.log(typeof newInput.Phone)
+        console.log(newInput.Phone)
+        var newunionRow = $('<tr>');
+        newunionRow.attr('class', 'tablerow');
+        $('#listofUnions').append(newunionRow);
     
-    newinputList.push(newInput);
-    localStorage.setItem('savedUnions', JSON.stringify(newinputList));
-
-    newPhone.val("");
-    newEmail.val("");
-    newName.val("");
-    newUrl.val("");
+        var newunionName = $('<td>');
+        newunionName.text(newInput.Name);
+        newunionRow.append(newunionName);
     
-    return newinputList;
+        var newunionUrl = $('<td>');
+        newunionUrl.text(newInput.Url);
+        newunionRow.append(newunionUrl);
+        var newunionLink = $('<a>');
+        newunionLink.attr('href', newInput.Url);
+        newunionUrl.append(newunionLink);
+    
+        var newunionPhone = $('<td>');
+        newunionPhone.text(newInput.Phone);
+        newunionRow.append(newunionPhone);
+    
+        var newunionEmail = $('<td>');
+        newunionEmail.text(newInput.Email);
+        newunionRow.append(newunionEmail);
+        
+        newinputList.push(newInput);
+        localStorage.setItem('savedUnions', JSON.stringify(newinputList));
+    
+        newPhone.val("");
+        newEmail.val("");
+        newName.val("");
+        newUrl.val("");
+        $('#modal1').modal('close');
+        return newinputList;
+    }
+        
 })
 
 // Queries local storage and updates union list with storage data.
@@ -176,6 +187,18 @@ if (localStorage.getItem('savedUnions') !== null) {
     localstorageUpdate()
 };
 
+// Address Input GeoCoding
+
+var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=AIzaSyDaIkzjZlSBdsIU_A12EFqBAhmZlLMaj1E';
+
+fetch (geocodeApi)
+    .then(response =>{
+        console.log(response);
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    });
 
 // Active Table Element
 function activeEmail() {
