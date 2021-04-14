@@ -12,7 +12,7 @@ $(document).ready(function(){
 // var unionUrl = new Array;
 // var unionList = new Array;
 // var unionImage = new Array;
-// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-11eb-982b-7da4a2ec72b5&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
+// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
 // fetch (googleScraper)
 //     .then(response =>{
@@ -58,7 +58,7 @@ $(document).ready(function(){
 // Start map implementation.
 // var mapScript = $('<script>');
 
-// mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCXxbXnmIhFftM2cyfO5bVSUGJ6MqHSCDM&callback=myMap');
+// mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=&callback=myMap');
 // mapScript.async = true;
 
 // $('head').append(mapScript);
