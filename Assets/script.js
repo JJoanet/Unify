@@ -119,7 +119,12 @@ var newUrl = $('#newUrl');
 var newName = $('#newName');
 var newinputList = new Array;
 
+// Accept button on modal form to add union data.
 acceptButton.on('click', function(){
+    if (localStorage.getItem('savedUnions') !== null) {
+        newinputList = JSON.parse(localStorage.getItem("savedUnions"));
+    };
+
     var newInput = {
         Name: newName.val(),
         Phone: newPhone.val(),
@@ -127,45 +132,42 @@ acceptButton.on('click', function(){
         Url: newUrl.val()
     }
 
+    var newunionRow = $('<tr>');
+    newunionRow.attr('class', 'tablerow');
+    $('#listofUnions').append(newunionRow);
+
+    var newunionName = $('<td>');
+    newunionName.text(newInput.Name);
+    newunionRow.append(newunionName);
+
+    var newunionUrl = $('<td>');
+    newunionUrl.text(newInput.Url);
+    newunionRow.append(newunionUrl);
+    var newunionLink = $('<a>');
+    newunionLink.attr('href', newInput.Url);
+    newunionUrl.append(newunionLink);
+
+    var newunionPhone = $('<td>');
+    newunionPhone.text(newInput.Phone);
+    newunionRow.append(newunionPhone);
+
+    var newunionEmail = $('<td>');
+    newunionEmail.text(newInput.Email);
+    newunionRow.append(newunionEmail);
     
     newinputList.push(newInput);
-    console.log(newinputList);
     localStorage.setItem('savedUnions', JSON.stringify(newinputList));
-    updateList();
+
+    newPhone.val("");
+    newEmail.val("");
+    newName.val("");
+    newUrl.val("");
     return newinputList;
 })
 
-function updateList(){
-    console.log(newinputList);
-    for ( i = 0; i < newinputList.length; i++ ) {
-
-        var newunionRow = $('<tr>');
-        newunionRow.attr('class', 'tablerow');
-        $('#listofUnions').append(newunionRow);
-
-        var newunionName = $('<td>');
-        newunionName.text(newinputList[i].Name);
-        newunionRow.append(newunionName);
-
-        var newunionUrl = $('<td>');
-        newunionUrl.text(newinputList[i].Url);
-        newunionRow.append(newunionUrl);
-        var newunionLink = $('<a>');
-        newunionLink.attr('href', newinputList[i].Url);
-        newunionUrl.append(newunionLink);
-
-        var newunionPhone = $('<td>');
-        newunionPhone.text(newinputList[i].Phone);
-        newunionRow.append(newunionPhone);
-
-        var newunionEmail = $('<td>');
-        newunionEmail.text(newinputList[i].Email);
-        newunionRow.append(newunionEmail);
-    }
-}
-
+// Queries local storage and updates union list with storage data.
 function localstorageUpdate(){
-    var savedUnions = JSON.parse(localStorage.getItem('savedUnions'));
+    savedUnions = JSON.parse(localStorage.getItem('savedUnions'));
     console.log(savedUnions);
 
     for( i = 0; i < savedUnions.length; i++ ){
@@ -196,4 +198,8 @@ function localstorageUpdate(){
 
 }
 
-localstorageUpdate();
+// Checks if local storage is present, updates list if present.
+if (localStorage.getItem('savedUnions') !== null) {
+    localstorageUpdate()
+};
+
