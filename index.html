@@ -60,19 +60,18 @@
           </tr>
         </thead>
 
-
-        <tbody>
-          <tr>
+        <tbody id="listofUnions">
+          <tr class = "tablerow">
             <td>EMS Workers United</td>
-            <td><a href="https://www.emsworkersunited.org/" target="_blank">emsworkersunited.org/</a></td>
+            <td><a href="https://www.emsworkersunited.org/" target="_blank">https://www.emsworkersunited.org/</a></td>
             <td>N/A</td>
-            <td>mdeahn@afscme.org</td>
+            <td id = email>mdeahn@afscme.org</td>
           </tr>
-          <tr>
+          <tr class = "tablerow">
             <td>National Association of Government Employees - EMS</td>
-            <td><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">nage-ems.org</a></td>
+            <td><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">https://www.nage-ems.org/about/about-nage-ems</a></td>
             <td>617-376-0469</td>
-            <td>kalexander@nage.org</td>
+            <td id = email>kalexander@nage.org</td>
           </tr>
         </tbody>
 
@@ -122,7 +121,7 @@
           </div>
           <div class = "row">
             <button class="btn waves-effect waves-light col s12 m12 l3 grey darken-3" type="submit" name="action">
-              Contact Your Local Rep
+              Contact Your Selected Rep
           </button>
           </div>
         </form>
@@ -288,7 +287,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    <button data-target="modal1" id="acceptButton" class="modal-close btn waves-effect waves-green btn-flat">Accept</button>
   </div>
 </div>
 
