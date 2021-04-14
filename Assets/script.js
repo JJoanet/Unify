@@ -1,8 +1,11 @@
+// Navbar Dropdown Ready Function
 $("document").ready(function(){
     $(".dropdown-trigger").dropdown();     
 })
 
-
+$(document).ready(function(){
+    $('.modal').modal();
+});
 
 // Union data from google scraper, variable storage.
 var unionUrl = new Array;
@@ -99,3 +102,6 @@ $("form").on("submit", function(event){
     // Opens Email Client with Populated Text
     window.open("mailto:mreisdorf9717@gmail.com?subject=sub&body="+ message + additionalComments);
 })
+
+
+// Add a new union
