@@ -50,3 +50,7 @@ body {
     padding: 18px;
 }
 
+.activetable {
+  background-color: rgb(66, 66, 66) !important;
+  color: white !important;
+}

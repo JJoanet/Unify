@@ -15,11 +15,11 @@ var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-
 
 fetch (googleScraper)
     .then(response =>{
-        console.log(response);
+        // console.log(response);
         return response.json();
     })
     .then(data => {
-        console.log(data);
+        // console.log(data);
 
         for( i = 0; i < 6; i++ ){
         unionList.push(data.news_results[i].title);
@@ -73,6 +73,24 @@ function myMap() {
 }
 // End map implementation.
 
+// Active Table Element
+var tableContainer = $(".tablecontainer");
+var tableRow = $(".tablecontainer .tablerow");
+
+for (var i = 0; i < tableRow.length; i++){
+    tableRow[i].addEventListener("click", function() {
+        var current = $(".activetable");
+        
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" activetable", "");
+        }
+        this.className += " activetable"
+        
+        email = $(".activetable").find("#email").text();
+    })
+}
+
+
 
 // Email to Union on Form Submission
 $("form").on("submit", function(event){
@@ -84,23 +102,26 @@ $("form").on("submit", function(event){
     let comments = $("#comments").val();
     let phoneNumber = $("#phone").val();
     
-
-    // Testing in log
-    console.log("form submitted");
-    console.log(firstName);
-    console.log(lastName)
-    console.log(comments);
-    console.log(phoneNumber);
-
     // Email Template
     let message = "Hello, %0D%0A%0D%0AMy name is " + firstName + " " + lastName + " and I wanted to reach out to you about canvassing for UNION%0D%0Aplease email me";
-    console.log(message); // Message Testing
     let additionalComments = "%0D%0A%0D%0AThis is an automatically generated email. Additional comments from " + firstName + " are shown below: %0D%0A%0D%0A" + comments;
-    console.log(additionalComments);
 
     // Opens Email Client with Populated Text
-    window.open("mailto:mreisdorf9717@gmail.com?subject=sub&body="+ message + additionalComments);
+    window.open("mailto:" + email + "?subject=sub&body="+ message + additionalComments);
 })
 
 
 // Add a new union
+
+
+
+
+
+
+
+
+
+
+
+
+
