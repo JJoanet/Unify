@@ -32,7 +32,7 @@ fetch (googleScraper)
         newsIcon.append(newsImage);
 
         newsImage.attr('src', unionImage[i])
-        
+        // newsImage.attr('class', 'col s4')
         var newsName = $('<td>');
         newNews.append(newsName);
 
@@ -42,7 +42,8 @@ fetch (googleScraper)
         newsLink.attr('href', unionUrl[i]);
         newsLink.text(unionList[i]);
         newsLink.attr('target', '_blank');
-        
+        // newsLink.attr('class', 'col s8')
+
         };
         return {
             data
