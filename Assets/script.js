@@ -74,8 +74,8 @@ function myMap() {
 // End map implementation.
 
 // Active Table Element
-var tableContainer = $(".tablecontainer");
-var tableRow = $(".tablecontainer .tablerow");
+var tableContainer = $("#listofUnions");
+var tableRow = $("#listofUnions .tablerow");
 
 for (var i = 0; i < tableRow.length; i++){
     tableRow[i].addEventListener("click", function() {
