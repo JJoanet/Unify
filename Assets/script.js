@@ -140,6 +140,7 @@ function updateList(){
     for ( i = 0; i < newinputList.length; i++ ) {
 
         var newunionRow = $('<tr>');
+        newunionRow.attr('class', 'tablerow');
         $('#listofUnions').append(newunionRow);
 
         var newunionName = $('<td>');
@@ -170,6 +171,7 @@ function localstorageUpdate(){
     for( i = 0; i < savedUnions.length; i++ ){
 
         var newsavedRow = $('<tr>');
+        newsavedRow.attr('class', 'tablerow');
         $('#listofUnions').append(newsavedRow);
 
         var newsavedName = $('<td>');
