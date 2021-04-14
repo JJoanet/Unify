@@ -8,49 +8,49 @@ $(document).ready(function(){
 });
 
 // Union data from google scraper, variable storage.
-var unionUrl = new Array;
-var unionList = new Array;
-var unionImage = new Array;
-var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-11eb-982b-7da4a2ec72b5&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
+// var unionUrl = new Array;
+// var unionList = new Array;
+// var unionImage = new Array;
+// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-11eb-982b-7da4a2ec72b5&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
-fetch (googleScraper)
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
+// fetch (googleScraper)
+//     .then(response =>{
+//         console.log(response);
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
 
-        for( i = 0; i < 6; i++ ){
-        unionList.push(data.news_results[i].title);
-        unionUrl.push(data.news_results[i].link);
-        unionImage.push(data.news_results[i].thumbnail);
+//         for( i = 0; i < 6; i++ ){
+//         unionList.push(data.news_results[i].title);
+//         unionUrl.push(data.news_results[i].link);
+//         unionImage.push(data.news_results[i].thumbnail);
         
-        var newNews = $('<tr>');
-        $('#news').append(newNews);
+//         var newNews = $('<tr>');
+//         $('#news').append(newNews);
 
-        var newsIcon = $('<td>');
-        newNews.append(newsIcon);
-        var newsImage = $('<img>');
-        newsIcon.append(newsImage);
+//         var newsIcon = $('<td>');
+//         newNews.append(newsIcon);
+//         var newsImage = $('<img>');
+//         newsIcon.append(newsImage);
 
-        newsImage.attr('src', unionImage[i])
+//         newsImage.attr('src', unionImage[i])
         
-        var newsName = $('<td>');
-        newNews.append(newsName);
+//         var newsName = $('<td>');
+//         newNews.append(newsName);
 
-        var newsLink = $('<a>');
-        newsName.append(newsLink)
+//         var newsLink = $('<a>');
+//         newsName.append(newsLink)
 
-        newsLink.attr('href', unionUrl[i]);
-        newsLink.text(unionList[i]);
-        newsLink.attr('target', '_blank');
+//         newsLink.attr('href', unionUrl[i]);
+//         newsLink.text(unionList[i]);
+//         newsLink.attr('target', '_blank');
         
-        };
-        return {
-            data
-        };
-    });
+//         };
+//         return {
+//             data
+//         };
+//     });
 // End union data from google scraper, variable storage.
 
 
@@ -104,3 +104,86 @@ $("form").on("submit", function(event){
 
 
 // Add a new union
+var acceptButton = $('#acceptButton');
+var newPhone = $('#newPhone');
+var newEmail = $('#newEmail');
+var newUrl = $('#newUrl');
+var newName = $('#newName');
+var newinputList = new Array;
+
+acceptButton.on('click', function(){
+    var newInput = {
+        Name: newName.val(),
+        Phone: newPhone.val(),
+        Email: newEmail.val(),
+        Url: newUrl.val()
+    }
+
+    
+    newinputList.push(newInput);
+    console.log(newinputList);
+    localStorage.setItem('savedUnions', JSON.stringify(newinputList));
+    updateList();
+    return newinputList;
+})
+
+function updateList(){
+    console.log(newinputList);
+    for ( i = 0; i < newinputList.length; i++ ) {
+
+        var newunionRow = $('<tr>');
+        $('#listofUnions').append(newunionRow);
+
+        var newunionName = $('<td>');
+        newunionName.text(newinputList[i].Name);
+        newunionRow.append(newunionName);
+
+        var newunionUrl = $('<td>');
+        newunionUrl.text(newinputList[i].Url);
+        newunionRow.append(newunionUrl);
+        var newunionLink = $('<a>');
+        newunionLink.attr('href', newinputList[i].Url);
+        newunionUrl.append(newunionLink);
+
+        var newunionPhone = $('<td>');
+        newunionPhone.text(newinputList[i].Phone);
+        newunionRow.append(newunionPhone);
+
+        var newunionEmail = $('<td>');
+        newunionEmail.text(newinputList[i].Email);
+        newunionRow.append(newunionEmail);
+    }
+}
+
+function localstorageUpdate(){
+    var savedUnions = JSON.parse(localStorage.getItem('savedUnions'));
+    console.log(savedUnions);
+
+    for( i = 0; i < savedUnions.length; i++ ){
+
+        var newsavedRow = $('<tr>');
+        $('#listofUnions').append(newsavedRow);
+
+        var newsavedName = $('<td>');
+        newsavedName.text(savedUnions[i].Name);
+        newsavedRow.append(newsavedName);
+
+        var newsavedUrl = $('<td>');
+        newsavedUrl.text(savedUnions[i].Url);
+        newsavedRow.append(newsavedUrl);
+        var newsavedLink = $('<a>');
+        newsavedLink.attr('href', savedUnions[i].Url);
+        newsavedUrl.append(newsavedLink);
+
+        var newsavedPhone = $('<td>');
+        newsavedPhone.text(savedUnions[i].Phone);
+        newsavedRow.append(newsavedPhone);
+
+        var newsavedEmail = $('<td>');
+        newsavedEmail.text(savedUnions[i].Email);
+        newsavedRow.append(newsavedEmail);
+    }
+
+}
+
+localstorageUpdate();
