@@ -16,6 +16,8 @@
 <header id = top class="row col s12 navbar-fixed">
   <nav>
     <div class="nav-wrapper black">
+      <!-- Modal Trigger -->
+      <button data-target="modal1" class="btn modal-trigger grey darken-3">Add a Union!</button>
       <a href="#!" class="brand-logo center white-text">Union Finder</a>
       <ul class="right">
         <!-- Dropdown Trigger -->
@@ -56,7 +58,8 @@
               <th>Union</th>
               <th>Website</th>
               <th>Phone</th>
-              <th>Email</th>
+              <th>Address</th>
+              <th class="hide">Email</th>
           </tr>
         </thead>
 
@@ -65,13 +68,15 @@
             <td>EMS Workers United</td>
             <td><a href="https://www.emsworkersunited.org/" target="_blank">https://www.emsworkersunited.org/</a></td>
             <td>N/A</td>
-            <td id = email>mdeahn@afscme.org</td>
+            <td>Address</td>
+            <td id = email class="hide">mdeahn@afscme.org</td>
           </tr>
           <tr class = "tablerow">
             <td>National Association of Government Employees - EMS</td>
             <td><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">https://www.nage-ems.org/about/about-nage-ems</a></td>
             <td>617-376-0469</td>
-            <td id = email>kalexander@nage.org</td>
+            <td>Address</td>
+            <td id = email class="hide">kalexander@nage.org</td>
           </tr>
         </tbody>
 
@@ -144,7 +149,7 @@
           <p>Paramedic Services of Illinois provides EMS Personnel and Firefighters, Critical Care Paramedics, Ambulance and Fire Rescue Billing, and third-party Fire Safety Consulting.</p>
         </div>
         <div class="card-action">
-          <a href="https://www.paramedicservices.com">Paramedic Services</a>
+          <a href="https://www.paramedicservices.com" target="_blank">Paramedic Services</a>
         </div>
       </div>
     </div>
@@ -160,7 +165,7 @@
           <p>The U.S. Department of Labor's Office of Workers' Compensation Programs (OWCP)</p>
         </div>
         <div class="card-action">
-          <a href="https://www.dol.gov/general/topic/workcomp">Workers Comp</a>
+          <a href="https://www.dol.gov/general/topic/workcomp" target="_blank">Workers Comp</a>
         </div>
       </div>
     </div>
@@ -176,7 +181,7 @@
           <p>Deliver online training for your public safety organization - Fire, EMS & more. TargetSolutions online training management is effective and efficient.</p>
         </div>
         <div class="card-action">
-          <a href="https://www.targetsolutions.com/">Target Solutions</a>
+          <a href="https://www.targetsolutions.com/" target="_blank">Target Solutions</a>
         </div>
       </div>
     </div>
@@ -216,7 +221,10 @@
               <span class="card-title">Jeremy Joanet</span>
             </div>
             <div class="card-content">
-              <p>Bio goes here.</p>
+              <p>Born and raised in Chicago, I have walked many miles in many shoes. 
+                I have worked in multiple industries including retail, sales, military service, computer repair, construction, and most recently; emergency medicine.
+                I have decided to change careers into programming as it's been an out of reach dream for me for the majority of my still short life.
+                Ambitious and educationally unchained, I plan to grow this career into one I can look back on with pride, and enjoy every step of the way.</p>
             </div>
             <div class="card-action grey darken-3">
               <a href="https://www.github.com/vygoth" target="_blank">GitHub</a>
@@ -274,11 +282,35 @@
             <label for="newPhone">Your Contact Number</label>
           </div>
         </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newstreetNumber" type="text" class="validate">
+            <label for="newstreetNumber">Street Number</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newstreetName" type="text" class="validate">
+            <label for="newstreetName">Street Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newCity" type="text" class="validate">
+            <label for="newCity">City Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newState" type="text" class="validate">
+            <label for="newState">State, abbreviated. eg. IL, CA, CO etc.</label>
+          </div>
+        </div>
       </form>
     </div>
   </div>
   <div class="modal-footer">
-    <button data-target="modal1" id="acceptButton" class="modal-close btn waves-effect waves-green btn-flat">Accept</button>
+    <button data-target="modal1" id="acceptButton" class="btn waves-effect waves-green btn-flat">Accept</button>
   </div>
 </div>
 

@@ -13,44 +13,44 @@ var unionList = new Array;
 var unionImage = new Array;
 var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=d4fd77b0-9c72-11eb-982b-7da4a2ec72b5&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
-fetch (googleScraper)
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
+// fetch (googleScraper)
+//     .then(response =>{
+//         console.log(response);
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
 
-        for( i = 0; i < 6; i++ ){
-        unionList.push(data.news_results[i].title);
-        unionUrl.push(data.news_results[i].link);
-        unionImage.push(data.news_results[i].thumbnail);
+//         for( i = 0; i < 6; i++ ){
+//         unionList.push(data.news_results[i].title);
+//         unionUrl.push(data.news_results[i].link);
+//         unionImage.push(data.news_results[i].thumbnail);
         
-        var newNews = $('<tr>');
-        $('#news').append(newNews);
+//         var newNews = $('<tr>');
+//         $('#news').append(newNews);
 
-        var newsIcon = $('<td>');
-        newNews.append(newsIcon);
-        var newsImage = $('<img>');
-        newsIcon.append(newsImage);
+//         var newsIcon = $('<td>');
+//         newNews.append(newsIcon);
+//         var newsImage = $('<img>');
+//         newsIcon.append(newsImage);
 
-        newsImage.attr('src', unionImage[i])
+//         newsImage.attr('src', unionImage[i])
         
-        var newsName = $('<td>');
-        newNews.append(newsName);
+//         var newsName = $('<td>');
+//         newNews.append(newsName);
 
-        var newsLink = $('<a>');
-        newsName.append(newsLink)
+//         var newsLink = $('<a>');
+//         newsName.append(newsLink)
 
-        newsLink.attr('href', unionUrl[i]);
-        newsLink.text(unionList[i]);
-        newsLink.attr('target', '_blank');
+//         newsLink.attr('href', unionUrl[i]);
+//         newsLink.text(unionList[i]);
+//         newsLink.attr('target', '_blank');
         
-        };
-        return {
-            data
-        };
-    });
+//         };
+//         return {
+//             data
+//         };
+//     });
 // End union data from google scraper, variable storage.
 
 
@@ -132,37 +132,50 @@ acceptButton.on('click', function(){
         Url: newUrl.val()
     }
 
-    var newunionRow = $('<tr>');
-    newunionRow.attr('class', 'tablerow');
-    $('#listofUnions').append(newunionRow);
+    if(newInput.Name === ""){
+        alert("Union name is a required field!")
+    } else if(newInput.Email === ""){
+        alert("Contact email is a required field!")
+    } else if(newInput.Url === ""){
+        alert("Union website is a required field!")
+    } else {
 
-    var newunionName = $('<td>');
-    newunionName.text(newInput.Name);
-    newunionRow.append(newunionName);
-
-    var newunionUrl = $('<td>');
-    newunionUrl.text(newInput.Url);
-    newunionRow.append(newunionUrl);
-    var newunionLink = $('<a>');
-    newunionLink.attr('href', newInput.Url);
-    newunionUrl.append(newunionLink);
-
-    var newunionPhone = $('<td>');
-    newunionPhone.text(newInput.Phone);
-    newunionRow.append(newunionPhone);
-
-    var newunionEmail = $('<td>');
-    newunionEmail.text(newInput.Email);
-    newunionRow.append(newunionEmail);
+        console.log(typeof newInput.Phone)
+        console.log(newInput.Phone)
+        var newunionRow = $('<tr>');
+        newunionRow.attr('class', 'tablerow');
+        $('#listofUnions').append(newunionRow);
     
-    newinputList.push(newInput);
-    localStorage.setItem('savedUnions', JSON.stringify(newinputList));
-
-    newPhone.val("");
-    newEmail.val("");
-    newName.val("");
-    newUrl.val("");
-    return newinputList;
+        var newunionName = $('<td>');
+        newunionName.text(newInput.Name);
+        newunionRow.append(newunionName);
+    
+        var newunionUrl = $('<td>');
+        newunionUrl.text(newInput.Url);
+        newunionRow.append(newunionUrl);
+        var newunionLink = $('<a>');
+        newunionLink.attr('href', newInput.Url);
+        newunionUrl.append(newunionLink);
+    
+        var newunionPhone = $('<td>');
+        newunionPhone.text(newInput.Phone);
+        newunionRow.append(newunionPhone);
+    
+        var newunionEmail = $('<td>');
+        newunionEmail.text(newInput.Email);
+        newunionRow.append(newunionEmail);
+        
+        newinputList.push(newInput);
+        localStorage.setItem('savedUnions', JSON.stringify(newinputList));
+    
+        newPhone.val("");
+        newEmail.val("");
+        newName.val("");
+        newUrl.val("");
+        $('#modal1').modal('close');
+        return newinputList;
+    }
+        
 })
 
 // Queries local storage and updates union list with storage data.
@@ -203,3 +216,15 @@ if (localStorage.getItem('savedUnions') !== null) {
     localstorageUpdate()
 };
 
+// Address Input GeoCoding
+
+var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=AIzaSyDaIkzjZlSBdsIU_A12EFqBAhmZlLMaj1E';
+
+fetch (geocodeApi)
+    .then(response =>{
+        console.log(response);
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    });
