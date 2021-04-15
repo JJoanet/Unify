@@ -88,14 +88,14 @@ tbody {
     display:block;
     height:380px;
     overflow:auto;
-    }
+}
 thead, tbody tr {
     display:table;
     width:100%;
-    }
+}
 thead {
     width: calc( 100% - 1em )
-    }
+}
 
 #cardSmall {
     padding: 0;
@@ -103,11 +103,22 @@ thead {
  
 #news-margin {
   margin-left: 33px !important;
+  border: 2px solid black;
 }
 
 #news {
     padding-left: 15px;
 }
+
 .modal-trigger{
-  margin-left: 10px;
+    margin-left: 10px;
+}
+
+.card-title {
+    font-size: 20px !important;
+}
+
+#mapCanvas {
+
+border: 2px solid black;
 }
