@@ -105,6 +105,9 @@ thead {
   margin-left: 33px !important;
 }
 
+#news {
+    padding-left: 15px;
+}
 .modal-trigger{
   margin-left: 10px;
 }
