@@ -104,3 +104,7 @@ thead {
 #news-margin {
   margin-left: 33px !important;
 }
+
+#news {
+    padding-left: 15px;
+}
