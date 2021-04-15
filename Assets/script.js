@@ -94,14 +94,15 @@ acceptButton.on('click', function(){
         alert("Union website is a required field!")
     } else {
 
-        console.log(typeof newInput.Phone)
-        console.log(newInput.Phone)
+        // console.log(typeof newInput.Phone)
+        // console.log(newInput.Phone)
         var newunionRow = $('<tr>');
         newunionRow.attr('class', 'tablerow');
         $('#listofUnions').append(newunionRow);
     
         var newunionName = $('<td>');
         newunionName.text(newInput.Name);
+        newunionName.attr("id", "unionName");
         newunionName.attr('class', 'col s3');
         newunionRow.append(newunionName);
     
@@ -111,6 +112,7 @@ acceptButton.on('click', function(){
 
         var newunionLink = $('<a>');
         newunionLink.attr('href', newInput.Url);
+        newunionLink.attr("class", "truncate");
         newunionLink.text(newInput.Url);
         newunionUrl.append(newunionLink);
     
@@ -175,7 +177,7 @@ acceptButton.on('click', function(){
 // Queries local storage and updates union list with storage data.
 function localstorageUpdate(){
     savedUnions = JSON.parse(localStorage.getItem('savedUnions'));
-    console.log(savedUnions);
+    // console.log(savedUnions);
 
     for( i = 0; i < savedUnions.length; i++ ){
 
@@ -185,6 +187,7 @@ function localstorageUpdate(){
 
         var newsavedName = $('<td>');
         newsavedName.text(savedUnions[i].Name);
+        newsavedName.attr("id", "unionName");
         newsavedName.attr('class', 'col s3');
         newsavedRow.append(newsavedName);
 
@@ -194,6 +197,7 @@ function localstorageUpdate(){
 
         var newsavedLink = $('<a>');
         newsavedLink.attr('href', savedUnions[i].Url);
+        newsavedLink.attr("class", "truncate");
         newsavedLink.text(savedUnions[i].Url);
         newsavedUrl.append(newsavedLink);
 
@@ -256,9 +260,10 @@ var streetName;
 var City;
 var State ;
 var email;
+var unionName;
 
 $('#listofUnions').on('click', function(e){
-    console.log(e.target);
+    // console.log(e.target);
     e.stopPropagation();
     var currentTr = $(e.target)
     currentTr.addClass('activetable')
@@ -267,7 +272,9 @@ $('#listofUnions').on('click', function(e){
     streetName = $(".activetable").find("#streetName").text();
     City = $(".activetable").find("#City").text();
     State = $(".activetable").find("#State").text();
-    console.log(email, streetNumber, streetName, City, State)
+    unionName = $(".activetable").find("#unionName").text();
+    console.log(unionName);
+    // console.log(email, streetNumber, streetName, City, State)
     pullgeoCode(streetNumber, streetName, City, State);
     currentTr.removeClass('activetable');
     return;
@@ -280,11 +287,11 @@ var selectedLat;
 var selectedLon;
 
 function pullgeoCode(streetNumber, streetName, City, State){
-    console.log(streetNumber)
+    // console.log(streetNumber)
     var trimmedstreetNumber =streetNumber.split(' ').join('+');
     var trimmedstreetName =streetName.split(' ').join('+');
     var trimmedCity = City.split(' ').join('+');
-    console.log(trimmedstreetNumber, trimmedstreetName, trimmedCity, State);
+    // console.log(trimmedstreetNumber, trimmedstreetName, trimmedCity, State);
    // console.log(trimmedstreetNumber, trimmedstreetName, trimmedCity, state)
     var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + trimmedstreetNumber + '+' + trimmedstreetName + '+' + trimmedCity + ',+' + State + '&key=' + geoKey;
 
@@ -293,10 +300,10 @@ function pullgeoCode(streetNumber, streetName, City, State){
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            // console.log(data);
             selectedLat = data.results[0].geometry.location.lat;
             selectedLon = data.results[0].geometry.location.lng;
-            console.log(selectedLat, selectedLon)
+            // console.log(selectedLat, selectedLon)
             mapMarker();
             return {
                 selectedLat,
@@ -327,7 +334,7 @@ function initMap() {
 
 // Pin Drop implementation
 function mapMarker() {
-    console.log(selectedLat, selectedLon)
+    // console.log(selectedLat, selectedLon)
     const myLatLng = { lat: selectedLat, lng: selectedLon };
     const map = new google.maps.Map(document.getElementById("mapCanvas"), {
       zoom: 18,
@@ -354,9 +361,9 @@ $("form").on("submit", function(event){
     let phoneNumber = $("#phone").val();
     
     // Email Template
-    let message = "Hello, %0D%0A%0D%0AMy name is " + firstName + " " + lastName + " and I wanted to reach out to you about canvassing for UNION%0D%0Aplease email me";
+    let message = "Hello, %0D%0A%0D%0AMy name is " + firstName + " " + lastName + " and I wanted to reach out to you about canvassing for " + unionName + ".%0D%0A";
     let additionalComments = "%0D%0A%0D%0AThis is an automatically generated email. Additional comments from " + firstName + " are shown below: %0D%0A%0D%0A" + comments;
-
+    let contactInfo = "%0D%0A%0D%0AYou can reach me at " + phoneNumber + " or by replying to this email.";
     // Opens Email Client with Populated Text
-    // window.open("mailto:" + email + "?subject=sub&body="+ message + additionalComments);
+    window.open("mailto:" + email + "?subject=Canvassing&body="+ message + additionalComments + contactInfo);
 })
