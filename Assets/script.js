@@ -1,3 +1,6 @@
+var serpKey = config.zenSerp;
+var mapsKey = config.mapsGoogle;
+var geoKey = config.geocodeGoogle;
 // Navbar Dropdown Ready Function
 $("document").ready(function(){
     $(".dropdown-trigger").dropdown();     
@@ -9,69 +12,69 @@ $(document).ready(function(){
 
 
 // Union data from google scraper, variable storage.
-// var unionUrl = new Array;
-// var unionList = new Array;
-// var unionImage = new Array;
-// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
+var unionUrl = new Array;
+var unionList = new Array;
+var unionImage = new Array;
+var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=' + serpKey + '&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
-// fetch (googleScraper)
-//     .then(response =>{
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log(data);
+fetch (googleScraper)
+    .then(response =>{
+        console.log(response);
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
 
-//         for( i = 0; i < 6; i++ ){
-//         unionList.push(data.news_results[i].title);
-//         unionUrl.push(data.news_results[i].link);
-//         unionImage.push(data.news_results[i].thumbnail);
+        for( i = 0; i < 6; i++ ){
+        unionList.push(data.news_results[i].title);
+        unionUrl.push(data.news_results[i].link);
+        unionImage.push(data.news_results[i].thumbnail);
         
-//         var newNews = $('<tr>');
-//         $('#news').append(newNews);
+        var newNews = $('<tr>');
+        $('#news').append(newNews);
 
-//         var newsIcon = $('<td>');
-//         newNews.append(newsIcon);
-//         var newsImage = $('<img>');
-//         newsIcon.append(newsImage);
+        var newsIcon = $('<td>');
+        newNews.append(newsIcon);
+        var newsImage = $('<img>');
+        newsIcon.append(newsImage);
 
-//         newsImage.attr('src', unionImage[i])
+        newsImage.attr('src', unionImage[i])
         
-//         var newsName = $('<td>');
-//         newNews.append(newsName);
+        var newsName = $('<td>');
+        newNews.append(newsName);
 
-//         var newsLink = $('<a>');
-//         newsName.append(newsLink)
+        var newsLink = $('<a>');
+        newsName.append(newsLink)
 
-//         newsLink.attr('href', unionUrl[i]);
-//         newsLink.text(unionList[i]);
-//         newsLink.attr('target', '_blank');
+        newsLink.attr('href', unionUrl[i]);
+        newsLink.text(unionList[i]);
+        newsLink.attr('target', '_blank');
         
-//         };
-//         return {
-//             data
-//         };
-//     });
+        };
+        return {
+            data
+        };
+    });
 // End union data from google scraper, variable storage.
 
 
 // Start map implementation.
-// var mapScript = $('<script>');
+var mapScript = $('<script>');
 
-// mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=&callback=myMap');
-// mapScript.async = true;
+mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=' + mapsKey + '&callback=myMap');
+mapScript.async = true;
 
-// $('head').append(mapScript);
+$('head').append(mapScript);
 
-// let map;
+let map;
 
-// function myMap() {
-//     var mapProp= {
-//       center:new google.maps.LatLng(41.881832,-87.623177),
-//       zoom:12,
-//     };
-//     var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
-// }
+function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(41.881832,-87.623177),
+      zoom:12,
+    };
+    var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
+}
 // End map implementation.
 
 
@@ -113,9 +116,11 @@ acceptButton.on('click', function(){
     
         var newunionName = $('<td>');
         newunionName.text(newInput.Name);
+        newunionName.attr('class', 'col s3');
         newunionRow.append(newunionName);
     
         var newunionUrl = $('<td>');
+        newunionUrl.attr('class', 'col s3');
         newunionRow.append(newunionUrl);
 
         var newunionLink = $('<a>');
@@ -125,11 +130,13 @@ acceptButton.on('click', function(){
     
         var newunionPhone = $('<td>');
         newunionPhone.text(newInput.Phone);
+        newunionPhone.attr('class', 'col s3');
         newunionRow.append(newunionPhone);
     
         var newunionEmail = $('<td>');
         newunionEmail.attr("id", "email");
         newunionEmail.attr("class", "hide");
+        newunionEmail.attr('class', 'col s3');
         newunionEmail.text(newInput.Email);
         newunionRow.append(newunionEmail);
         
@@ -159,9 +166,11 @@ function localstorageUpdate(){
 
         var newsavedName = $('<td>');
         newsavedName.text(savedUnions[i].Name);
+        newsavedName.attr('class', 'col s3');
         newsavedRow.append(newsavedName);
 
-        var newsavedUrl = $('<td>');
+        var newsavedUrl = $('<td>'); 
+        newsavedUrl.attr('class', 'col s3');
         newsavedRow.append(newsavedUrl);
 
         var newsavedLink = $('<a>');
@@ -170,12 +179,14 @@ function localstorageUpdate(){
         newsavedUrl.append(newsavedLink);
 
         var newsavedPhone = $('<td>');
+        newsavedPhone.attr('class', 'col s3');
         newsavedPhone.text(savedUnions[i].Phone);
         newsavedRow.append(newsavedPhone);
 
         var newsavedEmail = $('<td>');
         newsavedEmail.attr("class", "hide");
         newsavedEmail.attr("id", "email");
+        newsavedEmail.attr('class', 'col s3');
         newsavedEmail.text(savedUnions[i].Email);
         newsavedRow.append(newsavedEmail);
         
@@ -194,7 +205,7 @@ if (localStorage.getItem('savedUnions') !== null) {
 
 // Address Input GeoCoding
 
-var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=';
+var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=' + geoKey;
 
 
 fetch (geocodeApi)
