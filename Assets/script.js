@@ -12,69 +12,69 @@ $(document).ready(function(){
 
 
 // Union data from google scraper, variable storage.
-var unionUrl = new Array;
-var unionList = new Array;
-var unionImage = new Array;
-var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=' + serpKey + '&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
+// var unionUrl = new Array;
+// var unionList = new Array;
+// var unionImage = new Array;
+// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=' + serpKey + '&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
-fetch (googleScraper)
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
+// fetch (googleScraper)
+//     .then(response =>{
+//         console.log(response);
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
 
-        for( i = 0; i < 6; i++ ){
-        unionList.push(data.news_results[i].title);
-        unionUrl.push(data.news_results[i].link);
-        unionImage.push(data.news_results[i].thumbnail);
+//         for( i = 0; i < 6; i++ ){
+//         unionList.push(data.news_results[i].title);
+//         unionUrl.push(data.news_results[i].link);
+//         unionImage.push(data.news_results[i].thumbnail);
         
-        var newNews = $('<tr>');
-        $('#news').append(newNews);
+//         var newNews = $('<tr>');
+//         $('#news').append(newNews);
 
-        var newsIcon = $('<td>');
-        newNews.append(newsIcon);
-        var newsImage = $('<img>');
-        newsIcon.append(newsImage);
+//         var newsIcon = $('<td>');
+//         newNews.append(newsIcon);
+//         var newsImage = $('<img>');
+//         newsIcon.append(newsImage);
 
-        newsImage.attr('src', unionImage[i])
+//         newsImage.attr('src', unionImage[i])
         
-        var newsName = $('<td>');
-        newNews.append(newsName);
+//         var newsName = $('<td>');
+//         newNews.append(newsName);
 
-        var newsLink = $('<a>');
-        newsName.append(newsLink)
+//         var newsLink = $('<a>');
+//         newsName.append(newsLink)
 
-        newsLink.attr('href', unionUrl[i]);
-        newsLink.text(unionList[i]);
-        newsLink.attr('target', '_blank');
+//         newsLink.attr('href', unionUrl[i]);
+//         newsLink.text(unionList[i]);
+//         newsLink.attr('target', '_blank');
         
-        };
-        return {
-            data
-        };
-    });
+//         };
+//         return {
+//             data
+//         };
+//     });
 // End union data from google scraper, variable storage.
 
 
 // Start map implementation.
-var mapScript = $('<script>');
+// var mapScript = $('<script>');
 
-mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=' + mapsKey + '&callback=myMap');
-mapScript.async = true;
+// mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=' + mapsKey + '&callback=myMap');
+// mapScript.async = true;
 
-$('head').append(mapScript);
+// $('head').append(mapScript);
 
-let map;
+// let map;
 
-function myMap() {
-    var mapProp= {
-      center:new google.maps.LatLng(41.881832,-87.623177),
-      zoom:12,
-    };
-    var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
-}
+// function myMap() {
+//     var mapProp= {
+//       center:new google.maps.LatLng(41.881832,-87.623177),
+//       zoom:12,
+//     };
+//     var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
+// }
 // End map implementation.
 
 
@@ -85,6 +85,10 @@ var newPhone = $('#newPhone');
 var newEmail = $('#newEmail');
 var newUrl = $('#newUrl');
 var newName = $('#newName');
+var newstreetNumber = $('#newstreetNumber')
+var newstreetName = $('#newstreetName')
+var newCity = $('#newCity')
+var newState = $('#newState')
 var newinputList = new Array;
 
 // Accept button on modal form to add union data.
@@ -97,7 +101,11 @@ acceptButton.on('click', function(){
         Name: newName.val(),
         Phone: newPhone.val(),
         Email: newEmail.val(),
-        Url: newUrl.val()
+        Url: newUrl.val(),
+        streetNumber: newstreetNumber.val(),
+        streetName: newstreetName.val(),
+        City: newCity.val(),
+        State: newState.val()
     }
 
     if(newInput.Name === ""){
@@ -132,11 +140,39 @@ acceptButton.on('click', function(){
         newunionPhone.text(newInput.Phone);
         newunionPhone.attr('class', 'col s3');
         newunionRow.append(newunionPhone);
+
+        var newAddress = $('<td>');
+        newAddress.text(newInput.streetNumber + " " + newInput.streetName + " " + newInput.City + "," + " " + newInput.State);
+        newAddress.attr('class', 'col s3');
+        newunionRow.append(newAddress);
+
+        var newhiddenstreetNumber = $('<td>');
+        newhiddenstreetNumber.text(newInput.streetNumber)
+        newhiddenstreetNumber.attr('class', 'hide');
+        newhiddenstreetNumber.attr('id', 'streetNumber');
+        newunionRow.append(newhiddenstreetNumber);
+
+        var newhiddenstreetName = $('<td>');
+        newhiddenstreetName.text(newInput.streetName)
+        newhiddenstreetName.attr('class', 'hide');
+        newhiddenstreetName.attr('id', 'streetName');
+        newunionRow.append(newhiddenstreetName);
+
+        var newhiddenCity = $('<td>');
+        newhiddenCity.text(newInput.City)
+        newhiddenCity.attr('class', 'hide');
+        newhiddenCity.attr('id', 'City');
+        newunionRow.append(newhiddenCity);
+
+        var newhiddenState = $('<td>');
+        newhiddenState.text(newInput.State)
+        newhiddenState.attr('class', 'hide');
+        newhiddenState.attr('id', 'State');
+        newunionRow.append(newhiddenState);
     
         var newunionEmail = $('<td>');
         newunionEmail.attr("id", "email");
-        newunionEmail.attr("class", "hide");
-        newunionEmail.attr('class', 'col s3');
+        newunionEmail.attr('class', 'col s3 hide');
         newunionEmail.text(newInput.Email);
         newunionRow.append(newunionEmail);
         
@@ -147,6 +183,10 @@ acceptButton.on('click', function(){
         newEmail.val("");
         newName.val("");
         newUrl.val("");
+        newstreetNumber.val("");
+        newstreetName.val("");
+        newCity.val("");
+        newState.val("");
         $('#modal1').modal('close');
         return newinputList;
     }
@@ -182,10 +222,38 @@ function localstorageUpdate(){
         newsavedPhone.text(savedUnions[i].Phone);
         newsavedRow.append(newsavedPhone);
 
+        var newsavedAddress = $('<td>');
+        newsavedAddress.text(savedUnions[i].streetNumber + " " + savedUnions[i].streetName + " " + savedUnions[i].City + "," + " " + savedUnions[i].State);
+        newsavedAddress.attr('class', 'col s3');
+        newsavedRow.append(newsavedAddress);
+
+        var newsavedhiddenstreetNumber = $('<td>');
+        newsavedhiddenstreetNumber.text(savedUnions[i].streetNumber)
+        newsavedhiddenstreetNumber.attr('class', 'hide');
+        newsavedhiddenstreetNumber.attr('id', 'streetNumber');
+        newsavedRow.append(newsavedhiddenstreetNumber);
+
+        var newsavedhiddenstreetName = $('<td>');
+        newsavedhiddenstreetName.text(savedUnions[i].streetName)
+        newsavedhiddenstreetName.attr('class', 'hide');
+        newsavedhiddenstreetName.attr('id', 'streetName');
+        newsavedRow.append(newsavedhiddenstreetName);
+
+        var newsavedhiddenCity = $('<td>');
+        newsavedhiddenCity.text(savedUnions[i].City)
+        newsavedhiddenCity.attr('class', 'hide');
+        newsavedhiddenCity.attr('id', 'City');
+        newsavedRow.append(newsavedhiddenCity);
+
+        var newsavedhiddenState = $('<td>');
+        newsavedhiddenState.text(savedUnions[i].State)
+        newsavedhiddenState.attr('class', 'hide');
+        newsavedhiddenState.attr('id', 'State');
+        newsavedRow.append(newsavedhiddenState);
+
         var newsavedEmail = $('<td>');
-        newsavedEmail.attr("class", "hide");
         newsavedEmail.attr("id", "email");
-        newsavedEmail.attr('class', 'col s3');
+        newsavedEmail.attr('class', 'col s3 hide');
         newsavedEmail.text(savedUnions[i].Email);
         newsavedRow.append(newsavedEmail);
         
@@ -202,22 +270,13 @@ if (localStorage.getItem('savedUnions') !== null) {
     localstorageUpdate()
 };
 
-// Address Input GeoCoding
-
-var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=' + geoKey;
-
-
-fetch (geocodeApi)
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-    });
-
 // Active Table Element
-function activeEmail() {
+var streetNumber;
+var streetName;
+var City;
+var State;
+var email;
+function activeRow() {
 
     var tableRow = $("#listofUnions .tablerow");
 
@@ -231,15 +290,44 @@ function activeEmail() {
             this.className += " activetable"
             
             email = $(".activetable").find("#email").text();
-            console.log(email);
-            return email
+            streetNumber = $(".activetable").find("#streetNumber").text();
+            streetName = $(".activetable").find("#streetName").text();
+            City = $(".activetable").find("#City").text();
+            State = $(".activetable").find("#State").text();
+            console.log(email, streetNumber, streetName, City, State);
+            pullgeoCode();
+            return {
+                email,
+                streetNumber,
+                streetName,
+                City,
+                State
+            }
         })
     }
 }
 
+setInterval(activeRow,1000);
 
+var trimmedstreetNumber = activeRow.streetNumber.split(' ').join('+');
+var trimmedstreetName = activeRow.streetName.split(' ').join('+');
+var trimmedCity = activeRow.City.split(' ').join('+');
 
-setInterval(activeEmail,1000);
+// Address Input GeoCoding
+
+function pullgeoCode(){
+    var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + trimmedstreetNumber + '+' + trimmedstreetName + '+' + trimmedCity + ',+' + State + '&key=' + geoKey;
+
+    fetch (geocodeApi)
+        .then(response =>{
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        });
+
+}
+
 
 // Email to Union on Form Submission
 $("form").on("submit", function(event){
