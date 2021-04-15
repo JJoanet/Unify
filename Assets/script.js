@@ -57,28 +57,6 @@ $(document).ready(function(){
 //     });
 // End union data from google scraper, variable storage.
 
-
-// Start map implementation.
-// var mapScript = $('<script>');
-
-// mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=' + mapsKey + '&callback=myMap');
-// mapScript.async = true;
-
-// $('head').append(mapScript);
-
-// let map;
-
-// function myMap() {
-//     var mapProp= {
-//       center:new google.maps.LatLng(41.881832,-87.623177),
-//       zoom:12,
-//     };
-//     var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
-// }
-// End map implementation.
-
-
-
 // Add a new union
 var acceptButton = $('#acceptButton');
 var newPhone = $('#newPhone');
@@ -188,6 +166,7 @@ acceptButton.on('click', function(){
         newCity.val("");
         newState.val("");
         $('#modal1').modal('close');
+        activeRow();
         return newinputList;
     }
         
@@ -274,48 +253,38 @@ if (localStorage.getItem('savedUnions') !== null) {
 var streetNumber;
 var streetName;
 var City;
-var State;
+var State ;
 var email;
-function activeRow() {
 
-    var tableRow = $("#listofUnions .tablerow");
+$('#listofUnions').on('click', function(e){
+    console.log(e.target);
+    e.stopPropagation();
+    var currentTr = $(e.target)
+    currentTr.addClass('activetable')
+    email = $(".activetable").find("#email").text();
+    streetNumber = $(".activetable").find("#streetNumber").text();
+    streetName = $(".activetable").find("#streetName").text();
+    City = $(".activetable").find("#City").text();
+    State = $(".activetable").find("#State").text();
+    console.log(email, streetNumber, streetName, City, State)
+    pullgeoCode(streetNumber, streetName, City, State);
+    currentTr.removeClass('activetable');
+    return;
+})
 
-    for (var i = 0; i < tableRow.length; i++){
-        tableRow[i].addEventListener("click", function() {
-            var current = $(".activetable");
-            
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" activetable", "");
-            }
-            this.className += " activetable"
-            
-            email = $(".activetable").find("#email").text();
-            streetNumber = $(".activetable").find("#streetNumber").text();
-            streetName = $(".activetable").find("#streetName").text();
-            City = $(".activetable").find("#City").text();
-            State = $(".activetable").find("#State").text();
-            console.log(email, streetNumber, streetName, City, State);
-            pullgeoCode();
-            return {
-                email,
-                streetNumber,
-                streetName,
-                City,
-                State
-            }
-        })
-    }
-}
-
-setInterval(activeRow,1000);
-
-var trimmedstreetNumber = activeRow.streetNumber.split(' ').join('+');
-var trimmedstreetName = activeRow.streetName.split(' ').join('+');
-var trimmedCity = activeRow.City.split(' ').join('+');
 
 // Address Input GeoCoding
 
-function pullgeoCode(){
+var selectedLat;
+var selectedLon;
+
+function pullgeoCode(streetNumber, streetName, City, State){
+    console.log(streetNumber)
+    var trimmedstreetNumber =streetNumber.split(' ').join('+');
+    var trimmedstreetName =streetName.split(' ').join('+');
+    var trimmedCity = City.split(' ').join('+');
+    console.log(trimmedstreetNumber, trimmedstreetName, trimmedCity, State);
+   // console.log(trimmedstreetNumber, trimmedstreetName, trimmedCity, state)
     var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + trimmedstreetNumber + '+' + trimmedstreetName + '+' + trimmedCity + ',+' + State + '&key=' + geoKey;
 
     fetch (geocodeApi)
@@ -324,10 +293,52 @@ function pullgeoCode(){
         })
         .then(data => {
             console.log(data);
+            selectedLat = data.results[0].geometry.location.lat;
+            selectedLon = data.results[0].geometry.location.lng;
+            console.log(selectedLat, selectedLon)
+            mapMarker();
+            return {
+                selectedLat,
+                selectedLon
+            }
         });
 
 }
 
+// Start map implementation.
+var mapScript = $('<script>');
+
+mapScript.attr('src', 'https://maps.googleapis.com/maps/api/js?key=' + mapsKey + '&callback=initMap');
+mapScript.async = true;
+
+$('head').append(mapScript);
+
+let map;
+
+function initMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(41.881832,-87.623177),
+      zoom:2,
+    };
+    var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
+}
+// End map implementation.
+
+// Pin Drop implementation
+function mapMarker() {
+    console.log(selectedLat, selectedLon)
+    const myLatLng = { lat: selectedLat, lng: selectedLon };
+    const map = new google.maps.Map(document.getElementById("mapCanvas"), {
+      zoom: 18,
+      center: myLatLng,
+    });
+    new google.maps.Marker({
+      position: myLatLng,
+      map,
+      title: "Test",
+    });
+  }
+// Pin Drop End
 
 // Email to Union on Form Submission
 $("form").on("submit", function(event){
