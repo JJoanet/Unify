@@ -242,6 +242,8 @@ function activeEmail() {
 
 setInterval(activeEmail,1000);
 
+
+
 // Email to Union on Form Submission
 $("form").on("submit", function(event){
     event.preventDefault();
