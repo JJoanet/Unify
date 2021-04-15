@@ -12,49 +12,49 @@ $(document).ready(function(){
 
 
 // Union data from google scraper, variable storage.
-// var unionUrl = new Array;
-// var unionList = new Array;
-// var unionImage = new Array;
-// var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=' + serpKey + '&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
+var unionUrl = new Array;
+var unionList = new Array;
+var unionImage = new Array;
+var googleScraper = 'https://app.zenserp.com/api/v2/search?apikey=' + serpKey + '&q=EmtandParamedicUnion&lat=41.881832&lon=-87.623177&num=20&tbm=nws';
 
-// fetch (googleScraper)
-//     .then(response =>{
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log(data);
+fetch (googleScraper)
+    .then(response =>{
+        console.log(response);
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
 
-//         for( i = 0; i < 6; i++ ){
-//         unionList.push(data.news_results[i].title);
-//         unionUrl.push(data.news_results[i].link);
-//         unionImage.push(data.news_results[i].thumbnail);
+        for( i = 0; i < 6; i++ ){
+        unionList.push(data.news_results[i].title);
+        unionUrl.push(data.news_results[i].link);
+        unionImage.push(data.news_results[i].thumbnail);
         
-//         var newNews = $('<tr>');
-//         $('#news').append(newNews);
+        var newNews = $('<tr>');
+        $('#news').append(newNews);
 
-//         var newsIcon = $('<td>');
-//         newNews.append(newsIcon);
-//         var newsImage = $('<img>');
-//         newsIcon.append(newsImage);
+        var newsIcon = $('<td>');
+        newNews.append(newsIcon);
+        var newsImage = $('<img>');
+        newsIcon.append(newsImage);
 
-//         newsImage.attr('src', unionImage[i])
+        newsImage.attr('src', unionImage[i])
         
-//         var newsName = $('<td>');
-//         newNews.append(newsName);
+        var newsName = $('<td>');
+        newNews.append(newsName);
 
-//         var newsLink = $('<a>');
-//         newsName.append(newsLink)
+        var newsLink = $('<a>');
+        newsName.append(newsLink)
 
-//         newsLink.attr('href', unionUrl[i]);
-//         newsLink.text(unionList[i]);
-//         newsLink.attr('target', '_blank');
+        newsLink.attr('href', unionUrl[i]);
+        newsLink.text(unionList[i]);
+        newsLink.attr('target', '_blank');
         
-//         };
-//         return {
-//             data
-//         };
-//     });
+        };
+        return {
+            data
+        };
+    });
 // End union data from google scraper, variable storage.
 
 // Add a new union
@@ -326,7 +326,7 @@ let map;
 function initMap() {
     var mapProp= {
       center:new google.maps.LatLng(41.881832,-87.623177),
-      zoom:2,
+      zoom:8,
     };
     var map = new google.maps.Map(document.getElementById("mapCanvas"),mapProp);
 }
