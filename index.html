@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel = "stylesheet" href = "./Assets/style.css">
-    <title>Union Finder</title>
+    <title>Unify - Power to the People</title>
 </head>
 <body>
 
@@ -48,6 +48,7 @@
           Map Placeholder
           </div>
         </div>
+        <a class="waves-effect waves-light btn-large" id="mapButton">Button</a>
     </form>
 
     <!-- Union List -->
@@ -68,26 +69,34 @@
             <td class="col s3">EMS Workers United</td>
             <td class="col s3 truncate"><a href="https://www.emsworkersunited.org/" target="_blank">https://www.emsworkersunited.org/</a></td>
             <td class="col s3">N/A</td>
-            <td class="col s3">ADDRESS</td>
+            <td class="col s3">175 Bernal Road San Jose, CA</td>
             <td class = "hide" id = email>mdeahn@afscme.org</td>
+            <td class = "hide" id = "streetNumber">175</td>
+            <td class = "hide" id = "streetName">Bernal Road</td>
+            <td class = "hide" id = "City">San Jose</td>
+            <td class = "hide" id = "State">CA</td>
           </tr>
           <tr class = "tablerow">
             <td class="col s3">National Association of Government Employees - EMS</td>
             <td class="col s3"><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">https://www.nage-ems.org/about/about-nage-ems</a></td>
             <td class="col s3">617-376-0469</td>
-            <td class="col s3">ADDRESS</td>
+            <td class="col s3">159 Thomas Burgin Parkway Quincy, MA</td>
             <td class = "hide" id = email>kalexander@nage.org</td>
+            <td class = "hide" id = "streetNumber">159</td>
+            <td class = "hide" id = "streetName">Thomas Burgin Parkway</td>
+            <td class = "hide" id = "City">Quincy</td>
+            <td class = "hide" id = "State">MA</td>
           </tr>
         </tbody>
 
     </table>
 
       <!-- News -->
-    <div id = "news-margin" class="table-status-sheet col m11 l3">
+    <div id = "news-margin" class="table-status-sheet col m11 l3 responsive-table">
       <table id="newsTable" class="responsive-table">
         <thead>
           <tr>
-            <h5 class="black-text text center-align">Recent Union News</h5>
+            <h5 id="newsHead" class="black-text text center-align white-text">Recent Union News</h5>
           </tr>
         </thead>
           <tbody id="news">
@@ -320,18 +329,16 @@
 <footer class="page-footer black center-align">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <div id="footer" class="col l12 s12 center-align">
+          <!-- <h5 class="white-text">Footer Content</h5> -->
+          <h5 class="grey-text text-lighten-4">Unify</h5>
+          <p>power to the people.</p>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-
-
-      © 2021 Copyright Text
-
+      © 2021
       </div>
     </div>
 </footer>
