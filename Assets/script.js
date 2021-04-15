@@ -118,6 +118,7 @@ acceptButton.on('click', function(){
         var newunionUrl = $('<td>');
         newunionUrl.text(newInput.Url);
         newunionRow.append(newunionUrl);
+
         var newunionLink = $('<a>');
         newunionLink.attr('href', newInput.Url);
         newunionUrl.append(newunionLink);
@@ -127,6 +128,8 @@ acceptButton.on('click', function(){
         newunionRow.append(newunionPhone);
     
         var newunionEmail = $('<td>');
+        newunionEmail.attr("id", "email");
+        newunionEmail.attr("class", "hide");
         newunionEmail.text(newInput.Email);
         newunionRow.append(newunionEmail);
         
@@ -174,6 +177,7 @@ function localstorageUpdate(){
         newsavedEmail.attr("id", "email");
         newsavedEmail.text(savedUnions[i].Email);
         newsavedRow.append(newsavedEmail);
+        
 
        
     }
@@ -190,6 +194,7 @@ if (localStorage.getItem('savedUnions') !== null) {
 // Address Input GeoCoding
 
 var geocodeApi = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway+Mountain+View,+CA&key=AIzaSyDaIkzjZlSBdsIU_A12EFqBAhmZlLMaj1E';
+
 
 fetch (geocodeApi)
     .then(response =>{
