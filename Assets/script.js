@@ -116,11 +116,11 @@ acceptButton.on('click', function(){
         newunionRow.append(newunionName);
     
         var newunionUrl = $('<td>');
-        newunionUrl.text(newInput.Url);
         newunionRow.append(newunionUrl);
 
         var newunionLink = $('<a>');
         newunionLink.attr('href', newInput.Url);
+        newunionLink.text(newInput.Url);
         newunionUrl.append(newunionLink);
     
         var newunionPhone = $('<td>');
@@ -162,10 +162,11 @@ function localstorageUpdate(){
         newsavedRow.append(newsavedName);
 
         var newsavedUrl = $('<td>');
-        newsavedUrl.text(savedUnions[i].Url);
         newsavedRow.append(newsavedUrl);
+
         var newsavedLink = $('<a>');
         newsavedLink.attr('href', savedUnions[i].Url);
+        newsavedLink.text(savedUnions[i].Url);
         newsavedUrl.append(newsavedLink);
 
         var newsavedPhone = $('<td>');
