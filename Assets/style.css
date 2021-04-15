@@ -16,20 +16,20 @@ body {
 
 #form input[type="number"]:focus {
   padding-left: 4%;
-  border-bottom: 1px solid rgb(216, 146, 15) !important;
-  box-shadow: 0 1px 0 0 rgb(216, 146, 15) !important;
+  border-bottom: 1px solid rgb(18, 153, 18) !important;
+  box-shadow: 0 1px 0 0 rgb(18, 153, 18) !important;
 }
 
 .modal input[type="email"]:focus {
     padding-left: 4%;
-    border-bottom: 1px solid rgb(216, 146, 15) !important;
-    box-shadow: 0 1px 0 0 rgb(216, 146, 15) !important;
+    border-bottom: 1px solid rgb(18, 153, 18) !important;
+    box-shadow: 0 1px 0 0 rgb(18, 153, 18) !important;
 }
 
 .modal input[type="number"]:focus {
     padding-left: 4%;
-    border-bottom: 1px solid rgb(216, 146, 15) !important;
-    box-shadow: 0 1px 0 0 rgb(216, 146, 15) !important;
+    border-bottom: 1px solid rgb(18, 153, 18)!important;
+    box-shadow: 0 1px 0 0 rgb(18, 153, 18) !important;
 }
 
 
@@ -46,12 +46,12 @@ body {
   padding: 0;
 }
 .active {
-  color: rgb(216, 146, 15)!important;
+  color: rgb(18, 153, 18)!important;
   
 }
 .input-field input[type="text"]:focus {
-  border-bottom: 1px solid rgb(216, 146, 15) !important;
-  box-shadow: 0 1px 0 0 rgb(216, 146, 15) !important;
+  border-bottom: 1px solid rgb(18, 153, 18) !important;
+  box-shadow: 0 1px 0 0 rgb(18, 153, 18) !important;
 }
 
 #img1 {
@@ -103,7 +103,7 @@ thead {
  
 #news-margin {
   margin-left: 33px !important;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 #news {
@@ -123,3 +123,12 @@ thead {
 border: 2px solid black;
 }
 
+#news {
+    border: 2px solid black;
+}
+
+#newsHead {
+    border: 2px solid black;
+    background-color: rgb(68, 65, 65);
+    padding: 4px;
+}

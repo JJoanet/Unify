@@ -55,27 +55,27 @@
         <thead>
 
           <tr>
-              <th>Union</th>
-              <th>Website</th>
-              <th>Phone</th>
-              <th>Address</th>
+              <th class="col s3">Union</th>
+              <th class="col s3">Website</th>
+              <th class="col s3">Phone</th>
+              <th class="col s3">Address</th>
               <th class = "hide">Email</th>
           </tr>
         </thead>
 
         <tbody id="listofUnions">
           <tr class = "tablerow">
-            <td>EMS Workers United</td>
-            <td><a href="https://www.emsworkersunited.org/" target="_blank">https://www.emsworkersunited.org/</a></td>
-            <td>N/A</td>
-            <td>ADDRESS</td>
+            <td class="col s3">EMS Workers United</td>
+            <td class="col s3"><a href="https://www.emsworkersunited.org/" target="_blank">https://www.emsworkersunited.org/</a></td>
+            <td class="col s3">N/A</td>
+            <td class="col s3">ADDRESS</td>
             <td class = "hide" id = email>mdeahn@afscme.org</td>
           </tr>
           <tr class = "tablerow">
-            <td>National Association of Government Employees - EMS</td>
-            <td><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">https://www.nage-ems.org/about/about-nage-ems</a></td>
-            <td>617-376-0469</td>
-            <td>ADDRESS</td>
+            <td class="col s3">National Association of Government Employees - EMS</td>
+            <td class="col s3"><a href="https://www.nage-ems.org/about/about-nage-ems" target="_blank">https://www.nage-ems.org/about/about-nage-ems</a></td>
+            <td class="col s3">617-376-0469</td>
+            <td class="col s3">ADDRESS</td>
             <td class = "hide" id = email>kalexander@nage.org</td>
           </tr>
         </tbody>
@@ -83,11 +83,11 @@
     </table>
 
       <!-- News -->
-    <div id = "news-margin" class="table-status-sheet col m4 l3">
+    <div id = "news-margin" class="table-status-sheet col m11 l3 responsive-table">
       <table id="newsTable" class="responsive-table">
         <thead>
           <tr>
-            <h5 class="black-text text center-align">Recent Union News</h5>
+            <h5 id="newsHead" class="black-text text center-align white-text">Recent Union News</h5>
           </tr>
         </thead>
           <tbody id="news">
@@ -337,6 +337,7 @@
  
 <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./Assets/config.js"></script>
 <script src = "./Assets/script.js"></script>
 </body>
 </html>
