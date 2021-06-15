@@ -1,3 +1,5 @@
+###API Keys are not included with deployed version for security purposes.
+
 ## Live Deploy
 https://vygoth.github.io/Unify/
 
@@ -21,8 +23,6 @@ Zachs primary focus was on css, styling, design and overall appearance.
 Teamwork makes the dreamwork.
 
 The point of our site is to help bridge the gap between workers and unions, by allowing workers to find and reach out to unions on a universal platform.
-
-API Keys are not included with deployed version for security purposes.
 
 ## Table of Contents
 - [Usage](#Usage)
