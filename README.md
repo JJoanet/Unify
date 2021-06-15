@@ -22,6 +22,8 @@ Teamwork makes the dreamwork.
 
 The point of our site is to help bridge the gap between workers and unions, by allowing workers to find and reach out to unions on a universal platform.
 
+API Keys are not included with deployed version for security purposes.
+
 ## Table of Contents
 - [Usage](#Usage)
 - [Credits](#Credits)
